@@ -70,16 +70,6 @@ const adminRecord = (chest, tricep, bicep, deadlift, squat, personal_notes) => {
   })
 }
 
-const recordHistory = () => {
-  return $.ajax({
-    url: app.host + 'records/',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    }
-  })
-}
-
 const updateRecord = (id, chest, tricep, bicep, deadlift, squat, personal_notes) => {
   return $.ajax({
     url: app.host + 'records/' + id,
