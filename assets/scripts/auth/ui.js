@@ -5,6 +5,7 @@ const message = function (msg) {
 }
 
 const signUpSuccess = (data) => {
+  message('Sign up success')
   console.log(data)
 }
 
@@ -18,6 +19,7 @@ const signInSuccess = (data) => {
   app.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#change-password').show()
 
   console.log('this is working')
 }
@@ -40,6 +42,9 @@ const changePasswordFailure = (error) => {
 const logoutSuccess = () => {
   app.user = null
   message('Log Out Success')
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#change-password').hide()
   console.log('it log off')
 }
 

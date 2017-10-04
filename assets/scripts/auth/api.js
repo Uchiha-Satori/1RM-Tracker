@@ -109,7 +109,6 @@ module.exports = {
   changePassword,
   userLogout,
   adminRecord,
-  recordHistory,
   updateRecord,
   deleteRecord
 }
