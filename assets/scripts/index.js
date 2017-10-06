@@ -17,15 +17,19 @@ $(() => {
 const recordEvents = require('../scripts/auth/events.js')
 
 $(() => {
+  $('#log-out').hide()
+  $('#record-history').hide()
+  $('#new-record').hide()
   $('#sign-up').on('submit', recordEvents.onSignUp)
   $('#sign-in').on('submit', recordEvents.onSignIn)
   $('#change-password').on('submit', recordEvents.onChangePassword)
   $('#log-out').on('click', recordEvents.onLogOut)
   $('#record-history').click(recordEvents.onRecordHistory)
-  $('#submit-record').on('click', recordEvents.onSubmitRecord)
+  // $('#submit-record').on('click', recordEvents.onSubmitRecord)
   $('#new-record').on('click', recordEvents.onNewRecord)
 })
-$(document).on('click', '#delete-record', recordEvents.onDeleteRecord)
+$(document).on('click', '.delete-record', recordEvents.onDeleteRecord)
+$(document).on('click', '.update-record', recordEvents.onUpdateRecord)
 // $(document).on('submit', '#form-form', recordEvents.onEditRecord)
 
 // // maybe use this later for modal

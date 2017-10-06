@@ -49,21 +49,21 @@ const userLogout = () => {
   })
 }
 
-const updateRecord = (id, chest, tricep, bicep, deadlift, squat, personal_notes) => {
+const updateRecord = (data, recordId) => {
   return $.ajax({
-    url: app.host + 'records/' + id,
+    url: app.host + 'records/' + recordId,
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
     method: 'PATCH',
     data: {
       'record': {
-        'chest': chest,
-        'tricep': tricep,
-        'bicep': bicep,
-        'deadlift': deadlift,
-        'squat': squat,
-        'personal_notes': personal_notes,
+        'chest': data.chest,
+        'tricep': data.tricep,
+        'bicep': data.bicep,
+        'deadlift': data.deadlift,
+        'squat': data.squat,
+        'personal_notes': data.personal_notes,
         'user_id': app.user.id
       }
     }

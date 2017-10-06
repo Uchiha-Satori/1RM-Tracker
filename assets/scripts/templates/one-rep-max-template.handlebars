@@ -13,10 +13,10 @@
       <tr class="week">
         <form class="individual-form" id="form-form" data-id="{{this.id}}">
           {{#each this}}
-            <td><input value="{{this}}" /></td>
+            <td><input class="input-this" value="{{this}}" /></td>
           {{/each}}
           <td>
-          <button id="delete-record" data-id="{{this.id}}" class="btn-success btn span3">Delete Record</button></td>
+          <button class="delete-record" data-id="{{this.id}}" class="btn-success btn span3">Delete Record</button><button class="update-record" data-id="{{this.id}}" class="btn-success btn span3">Update Record</button></td>
         </form>
       </tr>
     {{/each}}

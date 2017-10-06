@@ -23,6 +23,10 @@ const signInSuccess = (data) => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').show()
+  $('#log-out').show()
+  $('#record-history').show()
+  $('#new-record').show()
+  $('#stat-table').show()
 }
 
 const signInFailure = (error) => {
@@ -46,6 +50,11 @@ const logoutSuccess = () => {
   $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()
+  $('#stat-table').hide()
+  $('#log-out').hide()
+  $('#record-history').hide()
+  $('#new-record').hide()
+
   console.log('it log off')
 }
 
@@ -103,11 +112,11 @@ const getRecordSuccess = function (data) {
 //     )
 //   })
 // }
-const editRecordSuccess = function (data) {
+const updateRecordSuccess = function (data) {
   console.log(data)
 }
 
-const editRecordFail = (error) => {
+const updateRecordFail = (error) => {
   console.error(error)
 }
 
@@ -136,8 +145,8 @@ module.exports = {
   changePasswordSuccess,
   logoutSuccess,
   logoutFailure,
-  editRecordSuccess,
-  editRecordFail,
+  updateRecordSuccess,
+  updateRecordFail,
   deleteRecordSuccess,
   deleteRecordFail,
   getRecordSuccess,

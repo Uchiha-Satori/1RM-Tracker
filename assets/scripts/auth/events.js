@@ -33,24 +33,28 @@ const onLogOut = function (event) {
     .then(ui.logoutSuccess)
     .catch(ui.logoutFailure)
 }
+//
+// const onSubmitRecord = function (event) {
+//   event.preventDefault()
+//   api.adminRecord(chest, tricep, bicep, deadlift, squat, personal_notes) // update api
+//     .then(ui.createSuccess) // update ui with
+//     .catch(ui.loopRecordsFailure)
+// }
 
-const onSubmitRecord = function (event) {
-  event.preventDefault()
-  api.adminRecord(chest, tricep, bicep, deadlift, squat, personal_notes) // update api
-    .then(ui.createSuccess) // update ui with
-    .catch(ui.loopRecordsFailure)
-}
-
-const onEditRecord = function (event) {
+const onUpdateRecord = function (recordId, data) {
+  api.updateRecord(recordId, data)
   console.log(event.target.dataset.id)
   event.preventDefault()
-  // const eventNum = event.target.dataset.id
-  // const recordId = parseInt(eventNum)
-  // const title = $('#blog-title').val()
-  // const content = $('#content-text').val()
-  api.updateBlog(chest, tricep, bicep, deadlift, squat, personal_notes)
-    .then(ui.editRecordSuccess)
-    .catch(ui.editRecordFail)
+  console.log($('.input-this').val())
+  // const chest
+  // const tricep
+  // const bicep
+  // const deadlift
+  // const squat
+  // const personal_notes
+  api.updateRecord(data)
+    .then(ui.updateRecordSuccess)
+    .catch(ui.updateRecordFail)
 }
 
 const onDeleteRecord = function (event) {
@@ -80,8 +84,8 @@ module.exports = {
   onSignUp,
   onChangePassword,
   onLogOut,
-  onSubmitRecord,
-  onEditRecord,
+  // onSubmitRecord,
+  onUpdateRecord,
   onDeleteRecord,
   onRecordHistory,
   onNewRecord
