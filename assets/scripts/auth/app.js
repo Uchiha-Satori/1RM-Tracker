@@ -2,5 +2,5 @@
 
 module.exports = {
   // host: 'http://localhost:4741/'
-  host: 'http://onermtracker.herokuapp.com/'
+  host: 'https://onermtracker.herokuapp.com/'
 }
