@@ -1,5 +1,8 @@
 'use strict'
 const app = require('./app.js')
+const handlebarsData = require('../handlebars-data.js')
+const oneRepMaxHandlebarsTemplate = require('../templates/one-rep-max-template.handlebars')
+
 const message = function (msg) {
   $('#error-message').text(msg)
 }
@@ -20,8 +23,6 @@ const signInSuccess = (data) => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').show()
-
-  console.log('this is working')
 }
 
 const signInFailure = (error) => {
@@ -53,8 +54,36 @@ const logoutFailure = (error) => {
   console.log(error)
 }
 
-const loopRecordsFail = (error) => {
+const getRecordsFail = (error) => {
   console.error(error)
+}
+
+const getRecordSuccess = function (data) {
+  console.log('ui data')
+  console.log(data)
+  // return handlebarsData.oneRepMaxHandlebars()
+
+  // const records = data.records
+  $('#stat-table').empty()
+
+  // const records = data.records.map(record => {
+    // delete record.id
+    // return record
+  // })
+
+  const context = {
+    'records': data.records
+  }
+
+  // console.log(context)
+  const oneRepMaxTemplate = oneRepMaxHandlebarsTemplate(context)
+  $('#stat-table').append(oneRepMaxTemplate)
+
+  // let dataID
+  // for (let i = 0; i < data.records.length; i++) {
+  //  dataID = data.records[i].id
+  //  handlebarsData.oneRepMaxHandlebars(data, dataID)
+  // }
 }
 // code was from former history see if i still need it later
 // const loopBlogsSuccess = function (data) {
@@ -74,7 +103,6 @@ const loopRecordsFail = (error) => {
 //     )
 //   })
 // }
-
 const editRecordSuccess = function (data) {
   console.log(data)
 }
@@ -91,6 +119,14 @@ const deleteRecordFail = (error) => {
   console.error(error)
 }
 
+const newRecordSuccess = function (data) {
+  console.log(data)
+}
+
+const newRecordFail = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -100,9 +136,12 @@ module.exports = {
   changePasswordSuccess,
   logoutSuccess,
   logoutFailure,
-  loopRecordsFail,
   editRecordSuccess,
   editRecordFail,
   deleteRecordSuccess,
-  deleteRecordFail
+  deleteRecordFail,
+  getRecordSuccess,
+  getRecordsFail,
+  newRecordSuccess,
+  newRecordFail
 }

@@ -49,27 +49,6 @@ const userLogout = () => {
   })
 }
 
-const adminRecord = (chest, tricep, bicep, deadlift, squat, personal_notes) => {
-  return $.ajax({
-    url: app.host + 'records/',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    },
-    method: 'POST',
-    data: {
-      'record': {
-        'chest': chest,
-        'tricep': tricep,
-        'bicep': bicep,
-        'deadlift': deadlift,
-        'squat': squat,
-        'personal_notes': personal_notes,
-        'user_id': app.user.id
-      }
-    }
-  })
-}
-
 const updateRecord = (id, chest, tricep, bicep, deadlift, squat, personal_notes) => {
   return $.ajax({
     url: app.host + 'records/' + id,
@@ -102,13 +81,46 @@ const deleteRecord = (id) => {
   })
 }
 
+const recordHistory = () => {
+  return $.ajax({
+    url: app.host + 'records/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+// create new record
+const newRecord = (chest, tricep, bicep, deadlift, squat, personal_notes) => {
+  return $.ajax({
+    url: app.host + 'records/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'POST',
+    data: {
+      'record': {
+        'chest': chest,
+        'tricep': tricep,
+        'bicep': bicep,
+        'deadlift': deadlift,
+        'squat': squat,
+        'personal_notes': personal_notes,
+        'user_id': app.user.id
+      }
+    }
+  })
+}
+
 // make button, and everything else just like admin blog.
 module.exports = {
   signIn,
   signUp,
   changePassword,
   userLogout,
-  adminRecord,
+  newRecord,
   updateRecord,
-  deleteRecord
+  deleteRecord,
+  recordHistory
 }

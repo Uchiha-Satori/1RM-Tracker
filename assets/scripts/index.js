@@ -21,15 +21,21 @@ $(() => {
   $('#sign-in').on('submit', recordEvents.onSignIn)
   $('#change-password').on('submit', recordEvents.onChangePassword)
   $('#log-out').on('click', recordEvents.onLogOut)
-  $('#submit-record').on('click', recordEvents.onSubmitBlog)
+  $('#record-history').click(recordEvents.onRecordHistory)
+  $('#submit-record').on('click', recordEvents.onSubmitRecord)
+  $('#new-record').on('click', recordEvents.onNewRecord)
 })
-// update button
-$(document).on('click', '.btnDeleteRecord', recordEvents.onBlogDelete)
-// edit button
-$(document).on('click', '#recordUpdateButton', recordEvents.onBlogEdit)
+$(document).on('click', '#delete-record', recordEvents.onDeleteRecord)
+// $(document).on('submit', '#form-form', recordEvents.onEditRecord)
 
-$(document).on('show.bs.modal', (e) => {
-  let recordId = e.relatedTarget.dataset.id
-  console.log(recordId)
-  $('.btnUpdateRecord').attr('data-id', `${recordId}`)
-})
+// // maybe use this later for modal
+// // update button
+// $(document).on('click', '.btnDeleteRecord', recordEvents.onBlogDelete)
+// // edit button
+// $(document).on('click', '#recordUpdateButton', recordEvents.onBlogEdit)
+//
+// $(document).on('show.bs.modal', (e) => {
+//   let recordId = e.relatedTarget.dataset.id
+//   console.log(recordId)
+//   $('.btnUpdateRecord').attr('data-id', `${recordId}`)
+// })

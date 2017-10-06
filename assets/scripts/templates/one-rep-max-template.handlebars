@@ -1,0 +1,24 @@
+<div id="1RM-template">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>CHEST</th>
+      <th>TRICEP</th>
+      <th>BICEP</th>
+      <th>DEADLIFT</th>
+      <th>SQUAT</th>
+      <th>PERSONAL NOTES</th>
+    </tr>
+    {{#each this.records}}
+      <tr class="week">
+        <form class="individual-form" id="form-form" data-id="{{this.id}}">
+          {{#each this}}
+            <td><input value="{{this}}" /></td>
+          {{/each}}
+          <td>
+          <button id="delete-record" data-id="{{this.id}}" class="btn-success btn span3">Delete Record</button></td>
+        </form>
+      </tr>
+    {{/each}}
+  </table>
+</div>

@@ -33,42 +33,56 @@ const onLogOut = function (event) {
     .then(ui.logoutSuccess)
     .catch(ui.logoutFailure)
 }
-// adjust for modal later
+
 const onSubmitRecord = function (event) {
   event.preventDefault()
-  const title = $('#00').val()
-  const content = $('#11').val()
-  api.adminRecord(title, content) // update api
+  api.adminRecord(chest, tricep, bicep, deadlift, squat, personal_notes) // update api
     .then(ui.createSuccess) // update ui with
     .catch(ui.loopRecordsFailure)
 }
 
-const onRecordEdit = function (event) {
+const onEditRecord = function (event) {
   console.log(event.target.dataset.id)
   event.preventDefault()
-  const eventNum = event.target.dataset.id
-  const blogId = parseInt(eventNum)
-  const title = $('#blog-title').val()
-  const content = $('#content-text').val()
-  api.updateBlog(blogId, title, content)
+  // const eventNum = event.target.dataset.id
+  // const recordId = parseInt(eventNum)
+  // const title = $('#blog-title').val()
+  // const content = $('#content-text').val()
+  api.updateBlog(chest, tricep, bicep, deadlift, squat, personal_notes)
     .then(ui.editRecordSuccess)
     .catch(ui.editRecordFail)
 }
 
-const onRecordDelete = function (event) {
+const onDeleteRecord = function (event) {
+  const id = this.getAttribute('data-id')
   console.log(event)
   event.preventDefault()
-  api.deleteRecord(event.target.dataset.id)
+  api.deleteRecord(id)
     .then(ui.deleteRecordSuccess)
     .catch(ui.deleteRecordFail)
 }
 
+const onRecordHistory = function (event) {
+  event.preventDefault()
+  api.recordHistory()
+    .then(ui.getRecordSuccess)
+    .catch(ui.getRecordsFail)
+}
+
+const onNewRecord = function (event) {
+  event.preventDefault()
+  api.newRecord()
+    .then()
+    .catch()
+}
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
   onLogOut,
   onSubmitRecord,
-  onRecordEdit,
-  onRecordDelete
+  onEditRecord,
+  onDeleteRecord,
+  onRecordHistory,
+  onNewRecord
 }
