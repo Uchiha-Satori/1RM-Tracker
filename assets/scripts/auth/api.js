@@ -49,7 +49,14 @@ const userLogout = () => {
   })
 }
 
-const updateRecord = (data, recordId) => {
+const updateRecord = (chest, tricep, bicep, deadlift, squat, personalNotes, recordId) => {
+  console.log('chest is ' + chest)
+  console.log('tricep is ' + tricep)
+  console.log('bicep is ' + bicep)
+  console.log('deadlift is ' + deadlift)
+  console.log('squat is ' + squat)
+  console.log('personalNotes is ' + personalNotes)
+  console.log('id is ' + recordId)
   return $.ajax({
     url: app.host + 'records/' + recordId,
     headers: {
@@ -58,12 +65,12 @@ const updateRecord = (data, recordId) => {
     method: 'PATCH',
     data: {
       'record': {
-        'chest': data.chest,
-        'tricep': data.tricep,
-        'bicep': data.bicep,
-        'deadlift': data.deadlift,
-        'squat': data.squat,
-        'personal_notes': data.personal_notes,
+        'chest': chest,
+        'tricep': tricep,
+        'bicep': bicep,
+        'deadlift': deadlift,
+        'squat': squat,
+        'personal_notes': personalNotes,
         'user_id': app.user.id
       }
     }

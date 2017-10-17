@@ -64,6 +64,7 @@ const logoutFailure = (error) => {
 }
 
 const getRecordsFail = (error) => {
+  console.log('Failed in getRecordsFail')
   console.error(error)
 }
 
@@ -113,26 +114,32 @@ const getRecordSuccess = function (data) {
 //   })
 // }
 const updateRecordSuccess = function (data) {
+  console.log('updateRecordSuccess')
   console.log(data)
 }
 
 const updateRecordFail = (error) => {
+  console.log('updateRecordFail')
   console.error(error)
 }
 
 const deleteRecordSuccess = function (data) {
+  console.log('deleteRecordSuccess')
   console.log(data)
 }
 
 const deleteRecordFail = (error) => {
+  console.log('deleteRecordFail')
   console.error(error)
 }
 
 const newRecordSuccess = function (data) {
+  console.log('newRecordSuccess')
   console.log(data)
 }
 
 const newRecordFail = (error) => {
+  console.log('newRecordFail')
   console.error(error)
 }
 

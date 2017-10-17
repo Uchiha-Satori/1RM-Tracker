@@ -1,7 +1,6 @@
 <div id="1RM-template">
   <table>
     <tr>
-      <th>ID</th>
       <th>CHEST</th>
       <th>TRICEP</th>
       <th>BICEP</th>
@@ -9,14 +8,29 @@
       <th>SQUAT</th>
       <th>PERSONAL NOTES</th>
     </tr>
+    <tr>
+      <td><input name="chest" class="input-chest" value="{{this.chest}}"/></td>
+      <td><input name="tricep" class="input-tricep" value="{{this.tricep}}"/></td>
+      <td><input name="bicep" class="input-bicep" value="{{this.bicep}}"/></td>
+      <td><input name="deadlift" class="input-deadlift" value="{{this.deadlift}}"/></td>
+      <td><input name="squat" class="input-squat" value="{{this.squat}}"/></td>
+      <td><input name="personal_notes" class="input-personal_notes" value="{{this.personal_notes}}"/></td>
+    </tr>
     {{#each this.records}}
       <tr class="week">
         <form class="individual-form" id="form-form" data-id="{{this.id}}">
-          {{#each this}}
-            <td><input class="input-this" value="{{this}}" /></td>
-          {{/each}}
+          <td>{{this.chest}}</td>
+          <td>{{this.tricep}}</td>
+          <td>{{this.bicep}}</td>
+          <td>{{this.deadlift}}</td>
+          <td>{{this.squat}}</td>
+          <td>{{this.personal_notes}}</td>
           <td>
-          <button class="delete-record" data-id="{{this.id}}" class="btn-success btn span3">Delete Record</button><button class="update-record" data-id="{{this.id}}" class="btn-success btn span3">Update Record</button></td>
+            <button class="update-record" data-id="{{this.id}}" name="submit" type="submit" class="btn-success btn span3">Update Record</button>
+          </td>
+          <td>
+            <button class="delete-record" data-id="{{this.id}}" class="btn-success btn span3">Delete Record</button>
+          </td>
         </form>
       </tr>
     {{/each}}

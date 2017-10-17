@@ -41,18 +41,16 @@ const onLogOut = function (event) {
 //     .catch(ui.loopRecordsFailure)
 // }
 
-const onUpdateRecord = function (recordId, data) {
-  api.updateRecord(recordId, data)
-  console.log(event.target.dataset.id)
+const onUpdateRecord = function (event) {
   event.preventDefault()
-  console.log($('.input-this').val())
-  // const chest
-  // const tricep
-  // const bicep
-  // const deadlift
-  // const squat
-  // const personal_notes
-  api.updateRecord(data)
+  const chest = $('.input-chest').val()
+  const tricep = $('.input-tricep').val()
+  const bicep = $('.input-bicep').val()
+  const squat = $('.input-squat').val()
+  const deadlift = $('.input-deadlift').val()
+  const personalNotes = $('.input-personal_notes').val()
+  const recordId = this.dataset.id
+  api.updateRecord(chest, bicep, tricep, squat, deadlift, personalNotes, recordId)
     .then(ui.updateRecordSuccess)
     .catch(ui.updateRecordFail)
 }
