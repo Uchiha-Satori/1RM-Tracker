@@ -1,24 +1,18 @@
 <div id="1RM-template">
-  <table>
-    <tr>
-      <th>CHEST</th>
-      <th>TRICEP</th>
-      <th>BICEP</th>
-      <th>DEADLIFT</th>
-      <th>SQUAT</th>
-      <th>PERSONAL NOTES</th>
-    </tr>
-    <tr>
-      <td><input name="chest" class="input-chest" value="{{this.chest}}"/></td>
-      <td><input name="tricep" class="input-tricep" value="{{this.tricep}}"/></td>
-      <td><input name="bicep" class="input-bicep" value="{{this.bicep}}"/></td>
-      <td><input name="deadlift" class="input-deadlift" value="{{this.deadlift}}"/></td>
-      <td><input name="squat" class="input-squat" value="{{this.squat}}"/></td>
-      <td><input name="personal_notes" class="input-personal_notes" value="{{this.personal_notes}}"/></td>
-    </tr>
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Chest</th>
+          <th>Tricep</th>
+          <th>Bicep</th>
+          <th>Deadlift</th>
+          <th>Squat</th>
+          <th>Personal Notes</th>
+        </tr>
+      </thead>
+      <tbody>
     {{#each this.records}}
-      <tr class="week">
-        <form class="individual-form" id="form-form" data-id="{{this.id}}">
+        <tr>
           <td>{{this.chest}}</td>
           <td>{{this.tricep}}</td>
           <td>{{this.bicep}}</td>
@@ -26,13 +20,59 @@
           <td>{{this.squat}}</td>
           <td>{{this.personal_notes}}</td>
           <td>
-            <button class="update-record" data-id="{{this.id}}" name="submit" type="submit" class="btn-success btn span3">Update Record</button>
+            <button type="button" class="btnEditRecord" data-id={{this.id}} data-chest="{{this.chest}}"  data-tricep="{{this.tricep}}" data-bicep="{{this.bicep}}" data-deadlift="{{this.deadlift}}" data-squat="{{this.squat}}" data-personalNotes="{{this.personal_notes}}" data-toggle="modal" data-target="#edit-modal" data-id={{this.id}}>edit record</button>
           </td>
           <td>
             <button class="delete-record" data-id="{{this.id}}" class="btn-success btn span3">Delete Record</button>
           </td>
-        </form>
-      </tr>
+        </tr>
     {{/each}}
-  </table>
+  </tbody>
+</table>
+
+  <!--modal-->
+  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label class="form-control-label">Chest:</label>
+        <input type="text" class="form-control input-chest" value="{{this.chest}}">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Tricep:</label>
+        <input type="text" class="form-control input-tricep" value="{{this.tricep}}">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Bicep:</label>
+        <input type="text" class="form-control input-bicep" value="{{this.bicep}}">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Deadlift:</label>
+        <input type="text" class="form-control input-deadlift" value="{{this.deadlift}}">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Squat:</label>
+        <input type="text" class="form-control input-squat" value="{{this.squat}}">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Personal Notes:</label>
+        <input class="form-control input-personal_notes" value="{{this.personal_notes}}"></input>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="update-record" class="btn btn-secondary" data-id="{{this.id}}">Update Record</button>
+  </div>
+</div>
+</div>
+</div>
 </div>

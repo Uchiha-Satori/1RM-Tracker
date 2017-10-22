@@ -30,6 +30,7 @@ $(() => {
 })
 $(document).on('click', '.delete-record', recordEvents.onDeleteRecord)
 $(document).on('click', '.update-record', recordEvents.onUpdateRecord)
+$(document).on('click', '.btnEditRecord', recordEvents.onEditButtonClick)
 // $(document).on('submit', '#form-form', recordEvents.onEditRecord)
 
 // // maybe use this later for modal

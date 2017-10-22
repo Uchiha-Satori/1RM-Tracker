@@ -11,55 +11,62 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
+    <body class="container">
       <h1>One Rep Max Track</h1>
       <h1>GET SWOLL</h1>
 
-      <div>
-        <form id="sign-up">
-          <fieldset>
-            <legend>Sign Up Below</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Create Password">
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-            <input type="submit" name="submit" value="Sign Up!">
-          </fieldset>
-        </form>
+      <div class="jumbotron">
+        <div>
+          <form id="sign-up">
+            <fieldset>
+              <legend>Sign Up Below</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Create Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" name="submit" value="Sign Up!">
+            </fieldset>
+          </form>
+          <div>
+            <form id="sign-in">
+              <fieldset>
+                <legend>Login Below</legend>
+                <input type="text" name="credentials[email]" placeholder="Email">
+                <input type="password" name="credentials[password]" placeholder="Password">
+                <input type="submit" name="submit" value="Sign In!">
+              </fieldset>
+            </form>
+          </div>
+
+          <div>
+            <form id="change-password">
+              <fieldset>
+                <legend>Change Password Below</legend>
+                <input type="password" name="passwords[old]" placeholder="Old Password">
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                <input type="submit" name="submit" value="Submit Changes">
+              </fieldset>
+            </form>
+          </div>
+
+        </div>
       </div>
 
-      <div>
-        <form id="sign-in">
-          <fieldset>
-            <legend>Login Below</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
-            <input type="submit" name="submit" value="Sign In!">
-          </fieldset>
-        </form>
-      </div>
 
-      <div>
-        <form id="change-password">
-          <fieldset>
-            <legend>Change Password Below</legend>
-            <input type="password" name="passwords[old]" placeholder="Old Password">
-            <input type="password" name="passwords[new]" placeholder="New Password">
-            <input type="submit" name="submit" value="Submit Changes">
-          </fieldset>
-        </form>
-      </div>
-      <br>
-      <div class="row"><button id="log-out" class="btn-success btn span3">Log Out</button></div>
-      <br>
-      <div class="container" id="error-message"></div>
 
-      <div class="row"><button id="record-history" class="btn-success btn span3">Record History</button></div>
-      <div class="row"><button id="new-record" class="btn-success btn span3">New Record</button></div>
-      <div id="stat-table"> </div>
-      <!-- former id for modal -->
-      <!-- <input type="text" name="blog[title]" placeholder="title" id="00">
-      <br>
-      <textarea name="blog[content]" rows="15" cols="80" id="11" placeholder="type new blog post here.">
-    </textarea> -->
+      <div class='container'>
+        <div class='col-lg-4'>
+          <button id="log-out" class="btn-success btn span3">Log Out</button>
+        </div>
+      </div>
+        <div class='col-lg-4'>
+          <div class="container" id="error-message"></div>
+        </div>
+        <div>
+          <div class='col-lg-4'>
+            <button id="record-history" class="btn-success btn span3">Record History</button>
+            <button id="new-record" class="btn-success btn span3">New Record</button>
+            <div id="stat-table"> </div>
+        </div>
+      </div>
     </body>
 </html>

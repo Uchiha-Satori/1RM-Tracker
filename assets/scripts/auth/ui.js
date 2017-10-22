@@ -71,48 +71,16 @@ const getRecordsFail = (error) => {
 const getRecordSuccess = function (data) {
   console.log('ui data')
   console.log(data)
-  // return handlebarsData.oneRepMaxHandlebars()
 
-  // const records = data.records
   $('#stat-table').empty()
-
-  // const records = data.records.map(record => {
-    // delete record.id
-    // return record
-  // })
 
   const context = {
     'records': data.records
   }
-
-  // console.log(context)
   const oneRepMaxTemplate = oneRepMaxHandlebarsTemplate(context)
   $('#stat-table').append(oneRepMaxTemplate)
-
-  // let dataID
-  // for (let i = 0; i < data.records.length; i++) {
-  //  dataID = data.records[i].id
-  //  handlebarsData.oneRepMaxHandlebars(data, dataID)
-  // }
 }
-// code was from former history see if i still need it later
-// const loopBlogsSuccess = function (data) {
-//   console.log(data)
-//   const blogs = data.blogs
-//   $('#show-blogs').empty()
-//   blogs.forEach((blog) => {
-//
-//     $('#show-blogs').append(
-//       '<div>' +
-//       `<h1> ${blog.title} </h1>` +
-//       `<p> ${blog.content} </p>` +
-//       `<input type="submit" class="btnDeleteBlog" name="delete" data-id="${blog.id}" value="delete blog">` +
-//       // outside edit blog button
-//       `<button type="button" class="btnEditBlog" id="editBtn${blog.id}" data-toggle="modal" data-target="#exampleModal" data-id="${blog.id}">edit blog</button>` +
-//       '</div>'
-//     )
-//   })
-// }
+
 const updateRecordSuccess = function (data) {
   console.log('updateRecordSuccess')
   console.log(data)

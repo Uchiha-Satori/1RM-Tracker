@@ -33,27 +33,6 @@ const onLogOut = function (event) {
     .then(ui.logoutSuccess)
     .catch(ui.logoutFailure)
 }
-//
-// const onSubmitRecord = function (event) {
-//   event.preventDefault()
-//   api.adminRecord(chest, tricep, bicep, deadlift, squat, personal_notes) // update api
-//     .then(ui.createSuccess) // update ui with
-//     .catch(ui.loopRecordsFailure)
-// }
-
-const onUpdateRecord = function (event) {
-  event.preventDefault()
-  const chest = $('.input-chest').val()
-  const tricep = $('.input-tricep').val()
-  const bicep = $('.input-bicep').val()
-  const squat = $('.input-squat').val()
-  const deadlift = $('.input-deadlift').val()
-  const personalNotes = $('.input-personal_notes').val()
-  const recordId = this.dataset.id
-  api.updateRecord(chest, bicep, tricep, squat, deadlift, personalNotes, recordId)
-    .then(ui.updateRecordSuccess)
-    .catch(ui.updateRecordFail)
-}
 
 const onDeleteRecord = function (event) {
   const id = this.getAttribute('data-id')
@@ -77,14 +56,47 @@ const onNewRecord = function (event) {
     .then()
     .catch()
 }
+
+const onUpdateRecord = function (event) {
+  event.preventDefault()
+  const chest = $('.input-chest').val()
+  const tricep = $('.input-tricep').val()
+  const bicep = $('.input-bicep').val()
+  const deadlift = $('.input-deadlift').val()
+  const squat = $('.input-squat').val()
+  const personalNotes = $('.input-personal_notes').val()
+  const recordId = $('#edit-modal').data('id')
+  api.updateRecord(chest, tricep, bicep, deadlift, squat, personalNotes, recordId)
+    .then(ui.updateRecordSuccess)
+    .catch(ui.updateRecordFail)
+}
+
+const onEditButtonClick = function (event) {
+  event.preventDefault()
+  let chest = $(this).data('chest')
+  let bicep = $(this).data('bicep')
+  let tricep = $(this).data('tricep')
+  let deadlift = $(this).data('deadlift')
+  let squat = $(this).data('squat')
+  let personal_notes = $(this).data('personalNotes')
+  let id = $(this).data('id')
+  $('.input-chest').val($(this).data('chest'))
+  $('.input-bicep').val(bicep)
+  $('.input-tricep').val(tricep)
+  $('.input-deadlift').val(deadlift)
+  $('.input-squat').val(squat)
+  $('.input-personal_notes').val(personal_notes)
+  $('#edit-modal').attr('data-id', id)
+  console.log($(this).data('personalNotes'))
+}
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
   onLogOut,
-  // onSubmitRecord,
   onUpdateRecord,
   onDeleteRecord,
   onRecordHistory,
-  onNewRecord
+  onNewRecord,
+  onEditButtonClick
 }
