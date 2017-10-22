@@ -1,2 +1,10 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+h1 {
+  font-family: 'Corben', Georgia, Times, serif;
+}
+
+body {
+  background-color: #808080;
+}

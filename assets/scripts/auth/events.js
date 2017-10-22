@@ -7,7 +7,9 @@ const onSignUp = function (event) {
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then($('#error-message').fadeIn(1000).delay(3000).fadeOut(1000))
     .catch(ui.signUpFailure)
+    .catch($('#error-message').fadeIn(1000).delay(3000).fadeOut(1000))
 }
 
 const onSignIn = function (event) {
