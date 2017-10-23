@@ -78,6 +78,7 @@ const getRecordsFail = (error) => {
 
 const getRecordSuccess = function (data) {
   $('#new-record').show()
+  $('#stat-table').show()
   console.log('ui data')
   console.log(data)
 
