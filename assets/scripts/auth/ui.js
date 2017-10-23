@@ -1,6 +1,5 @@
 'use strict'
 const app = require('./app.js')
-const handlebarsData = require('../handlebars-data.js')
 const oneRepMaxHandlebarsTemplate = require('../templates/one-rep-max-template.handlebars')
 
 const message = function (msg) {
@@ -31,8 +30,6 @@ const signInSuccess = (data) => {
   $('#change-password').show()
   $('#log-out').show()
   $('#record-history').show()
-  $('#new-record').show()
-  $('#stat-table').show()
 }
 
 const signInFailure = (error) => {
@@ -80,6 +77,7 @@ const getRecordsFail = (error) => {
 }
 
 const getRecordSuccess = function (data) {
+  $('#new-record').show()
   console.log('ui data')
   console.log(data)
 
@@ -103,6 +101,8 @@ const updateRecordFail = (error) => {
 }
 
 const deleteRecordSuccess = function (data) {
+  message('Record Deleted, please press Record History')
+  fadeMessage()
   console.log('deleteRecordSuccess')
   console.log(data)
 }
@@ -113,6 +113,8 @@ const deleteRecordFail = (error) => {
 }
 
 const newRecordSuccess = function (data) {
+  message('Record created, please click Record History')
+  fadeMessage()
   console.log('newRecordSuccess')
   console.log(data)
 }

@@ -55,8 +55,8 @@ const onRecordHistory = function (event) {
 const onNewRecord = function (event) {
   event.preventDefault()
   api.newRecord()
-    .then()
-    .catch()
+    .then(ui.newRecordSuccess)
+    .catch(ui.newRecordFail)
 }
 
 const onUpdateRecord = function (event) {
