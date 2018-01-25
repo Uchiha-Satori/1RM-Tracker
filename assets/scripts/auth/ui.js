@@ -13,17 +13,14 @@ const fadeMessage = function (msg) {
 const signUpSuccess = (data) => {
   message('Sign up success')
   fadeMessage()
-  console.log(data)
 }
 
-const signUpFailure = (error) => {
+const signUpFailure = () => {
   message('Sign Up Failure Username taken or incorrect matching password')
   fadeMessage()
-  console.log(error)
 }
 
 const signInSuccess = (data) => {
-  console.log(data)
   app.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -32,8 +29,7 @@ const signInSuccess = (data) => {
   $('#record-history').show()
 }
 
-const signInFailure = (error) => {
-  console.log(error)
+const signInFailure = () => {
   message('Incorrect Password or Username')
   fadeMessage()
 }
@@ -41,13 +37,11 @@ const signInFailure = (error) => {
 const changePasswordSuccess = (data) => {
   message('Password Changed')
   fadeMessage()
-  console.log(data)
 }
 
-const changePasswordFailure = (error) => {
+const changePasswordFailure = () => {
   message('Error, Try Again, Password Not Changed')
   fadeMessage()
-  console.log(error)
 }
 
 const logoutSuccess = () => {
@@ -61,26 +55,19 @@ const logoutSuccess = () => {
   $('#log-out').hide()
   $('#record-history').hide()
   $('#new-record').hide()
-
-  console.log('it log off')
 }
 
-const logoutFailure = (error) => {
+const logoutFailure = () => {
   message('Log Out Fail')
   fadeMessage()
-  console.log(error)
 }
 
-const getRecordsFail = (error) => {
-  console.log('Failed in getRecordsFail')
-  console.error(error)
+const getRecordsFail = () => {
 }
 
 const getRecordSuccess = function (data) {
   $('#new-record').show()
   $('#stat-table').show()
-  console.log('ui data')
-  console.log(data)
 
   $('#stat-table').empty()
 
@@ -92,37 +79,25 @@ const getRecordSuccess = function (data) {
 }
 
 const updateRecordSuccess = function (data) {
-  console.log('updateRecordSuccess')
-  console.log(data)
 }
 
-const updateRecordFail = (error) => {
-  console.log('updateRecordFail')
-  console.error(error)
+const updateRecordFail = () => {
 }
 
 const deleteRecordSuccess = function (data) {
   message('Record Deleted, please press Record History')
   fadeMessage()
-  console.log('deleteRecordSuccess')
-  console.log(data)
 }
 
-const deleteRecordFail = (error) => {
-  console.log('deleteRecordFail')
-  console.error(error)
+const deleteRecordFail = () => {
 }
 
 const newRecordSuccess = function (data) {
   message('Record created, please click Record History')
   fadeMessage()
-  console.log('newRecordSuccess')
-  console.log(data)
 }
 
-const newRecordFail = (error) => {
-  console.log('newRecordFail')
-  console.error(error)
+const newRecordFail = () => {
 }
 
 module.exports = {

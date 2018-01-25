@@ -50,13 +50,6 @@ const userLogout = () => {
 }
 
 const updateRecord = (chest, tricep, bicep, deadlift, squat, personalNotes, recordId) => {
-  console.log('chest is ' + chest)
-  console.log('tricep is ' + tricep)
-  console.log('bicep is ' + bicep)
-  console.log('deadlift is ' + deadlift)
-  console.log('squat is ' + squat)
-  console.log('personalNotes is ' + personalNotes)
-  console.log('id is ' + recordId)
   return $.ajax({
     url: app.host + 'records/' + recordId,
     headers: {
@@ -78,7 +71,6 @@ const updateRecord = (chest, tricep, bicep, deadlift, squat, personalNotes, reco
 }
 
 const deleteRecord = (id) => {
-  console.log(id)
   return $.ajax({
     url: app.host + 'records/' + id,
     headers: {

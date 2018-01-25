@@ -14,7 +14,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  console.log(data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -38,7 +37,6 @@ const onLogOut = function (event) {
 
 const onDeleteRecord = function (event) {
   const id = this.getAttribute('data-id')
-  console.log(event)
   event.preventDefault()
   api.deleteRecord(id)
     .then(ui.deleteRecordSuccess)
@@ -89,7 +87,6 @@ const onEditButtonClick = function (event) {
   $('.input-squat').val(squat)
   $('.input-personal_notes').val(personal_notes)
   $('#edit-modal').attr('data-id', id)
-  console.log($(this).data('personalNotes'))
 }
 module.exports = {
   onSignIn,

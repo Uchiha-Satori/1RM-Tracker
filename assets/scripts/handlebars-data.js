@@ -9,7 +9,6 @@ const oneRepMaxHandlebars = function (data, dataID) {
     'records': records,
     'dataID': dataID
   }
-  console.log(context)
   const oneRepMaxTemplate = oneRepMaxHandlebarsTemplate(context)
   $('#stat-table').append(oneRepMaxTemplate)
 }
