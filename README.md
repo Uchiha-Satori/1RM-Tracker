@@ -13,7 +13,7 @@ As a user I want to update stats for each week in case I need to make a correcti
 As a user I want to delete stats for each week in case I make a mistake
 As a user I want to leave a note for myself about each week to see why I might have done better or worse compared to others.
 
-wireframes:
-
 Unsolved problems:
 Need to figure out a way to have each row update data that is inputted.
+
+Link to the [back end repo](https://github.com/Uchiha-Satori/1RM-Tracker-BackEnd)
